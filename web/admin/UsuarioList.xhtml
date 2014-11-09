@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <link rel="stylesheet" href="..resources/css/estilos.css"/>
+    <link rel="stylesheet" href="..resources/css/normalize.css"/>
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">Clientes</ui:define>
+        <ui:define name="body"> 
+            <h1 class="h1">Lista de clientes </h1>
+
+            <h:form>
+                <nav>
+                    <ul>
+                    <li class="Li-button">
+                <p>
+                    
+                    <p:commandButton value="Agregar cliente" action="#{clienteController.prepareCreate}"/>
+                </p>
+                    </li>
+                    <li class="Li-button">
+                <p>
+                    
+                    <p:commandButton value="Ver pedidos" action="#{pedidosController.prepareList}"/>
+                </p>
+                        </li>
+                    </ul>
+                </nav>
+
+                <p:dataTable value="#{clienteController.listaCliente}" var="item"
+
+                             rows="10" id="employeeTable" 
+                             paginator="true"
+                             paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             rowsPerPageTemplate="5,10,15" 
+                             >
+
+                    <p:column filterBy="#{item.numeroDocumento}" filterMatchMode="contains" >
+                        <f:facet name="header">
+                            <h:outputText value="Numero Documento"/>
+                        </f:facet>
+                        <h:outputText value="#{item.numeroDocumento}"/>
+                    </p:column>
+                    <p:column filterBy="#{item.nombresCliente}" filterMatchMode="contains" >
+                        <f:facet name="header">
+                            <h:outputText value="Nombres Cliente"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombresCliente}"/>
+                    </p:column>
+                    <p:column filterBy="#{item.apellidosCliente}" filterMatchMode="contains" >
+                        <f:facet name="header">
+                            <h:outputText value="Apellidos Cliente"/>
+                        </f:facet>
+                        <h:outputText value="#{item.apellidosCliente}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Telefono"/>
+                        </f:facet>
+                        <h:outputText value="#{item.telefono}"/>
+                    </p:column>
+                    
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Direccion"/>
+                        </f:facet>
+                        <h:outputText value="#{item.direccion}"/>
+                    </p:column>
+
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Email"/>
+                        </f:facet>
+                        <h:outputText value="#{item.email}"/>
+                    </p:column>
+
+
+
+                    <p:column>
+                        <p:commandButton icon="ui-icon-search" action="#{clienteController.prepareView()}">
+                            <f:setPropertyActionListener value="#{item}" target="#{clienteController.clienteActual}"/>
+                        </p:commandButton>
+
+                        <p:commandButton icon="ui-icon-pencil" action="#{clienteController.prepareEdit()}">
+                            <f:setPropertyActionListener value="#{item}" target="#{clienteController.clienteActual}"/>
+                        </p:commandButton>
+
+                        <p:commandButton icon="ui-icon-trash" action="#{clienteController.deleteCliente()}"
+                                         process="@this" update="employeeTable">
+                            <p:confirm header="Confirmación" message="¿Esta seguro que desea eliminar el cliente?" icon="ui-icon-alert" />
+                            <f:setPropertyActionListener value="#{item}" target="#{clienteController.clienteActual}"/>
+                        </p:commandButton>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+
+</html>
+

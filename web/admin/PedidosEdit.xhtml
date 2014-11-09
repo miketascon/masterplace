@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">Registrarse</ui:define>
+        <ui:define name="body"> 
+            <h1 class="h1">¡Por favor llene el formulario! </h1>
+
+        
+
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                     <h:outputLabel value="Número de documento:" for="clienteIdCliente" />
+                    <h:selectOneMenu id="clienteIdCliente" value="#{pedidosController.pedidoActual.clienteIdCliente}" title="ClienteIdCliente" required="true" requiredMessage="The ClienteIdCliente field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{pedidosController.listClienteSelectOne}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="Productos:" for="productos" />
+                    <h:inputText id="productos" value="#{pedidosController.pedidoActual.productos}" title="Productos" />
+                   
+                </h:panelGrid>
+                <h:commandButton value ="Guardar"
+                                 action="#{pedidosController.addCliente}"/>
+                <h:button value="Cancelar" outcome="/index"/>
+               
+            </h:form>
+        
+         </ui:define>
+    </ui:composition>
+</html>
+

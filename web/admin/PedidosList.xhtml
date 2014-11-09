@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">Pedidos de clientes</ui:define>
+        <ui:define name="body"> 
+            <h1 class="h1">Pedidos</h1>
+            <f:view>
+
+
+                <h:form>
+                    <p>
+
+                        <p:commandButton value="Agregar pedido" action="#{pedidosController.prepareCreate}"/>
+                    </p>
+
+                    <p:dataTable value="#{pedidosController.listaPedido}" var="item"
+                                 rows="10" id="pedidosTabla"
+                                 paginator="true"
+                                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="5,10,15" 
+
+                                 >
+                        <p:column filterBy="#{item.idPedido}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="Pedido número"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPedido}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.clienteIdCliente}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="Cliente"/>
+                            </f:facet>
+                            <h:outputText value="#{item.clienteIdCliente}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Productos"/>
+                            </f:facet>
+                            <h:outputText value="#{item.productos}"/>
+                        </p:column>
+                         <p:column>
+                        <p:commandButton icon="ui-icon-search" action="#{pedidosController.prepareView()}">
+                            <f:setPropertyActionListener value="#{item}" target="#{pedidosController.pedidoActual}"/>
+                        </p:commandButton>
+
+                        <p:commandButton icon="ui-icon-pencil" action="#{pedidosController.prepareEdit()}">
+                            <f:setPropertyActionListener value="#{item}" target="#{pedidosController.pedidoActual}"/>
+                        </p:commandButton>
+
+                        <p:commandButton icon="ui-icon-trash" action="#{pedidosController.deletePedido()}"
+                                         process="@this" update="pedidosTabla">
+                            <p:confirm header="Confirmación" message="¿Esta seguro que desea eliminar el pedido?" icon="ui-icon-alert" />
+                            <f:setPropertyActionListener value="#{item}" target="#{pedidosController.pedidoActual}"/>
+                        </p:commandButton>
+                    </p:column>
+                        
+                    </p:dataTable>
+                    
+                    
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>
+

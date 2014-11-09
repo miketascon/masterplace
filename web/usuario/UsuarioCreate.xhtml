@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+   <!-- <link rel="stylesheet" href="..resources/css/estilos.css"/>
+    <link rel="stylesheet" href="..resources/css/normalize.css"/>-->
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">Registrarse</ui:define>
+        <ui:define name="body"> 
+            <h1 class="h1">¡Por favor llene el formulario! </h1>
+     
+            <h:form p:class="form-reg">
+
+                <h:panelGrid columns="1">
+                    <label class="Label">Tipo de documento *</label>
+                    <h:selectOneMenu p:class="Select-menu" id="idTipoDocumento" value="#{clienteController.clienteActual.idTipoDocumento}" title="IdTipoDocumento" required="true" requiredMessage="The IdTipoDocumento field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{clienteController.listTipoDocumentoSelectOne}"/>
+                    </h:selectOneMenu>
+
+                    <label class="Label">Número de documento *</label>
+                    <input placeholder="Números mayores a 1" class="Input" type="number" jsf:id="numeroDocumento" jsf:value="#{clienteController.clienteActual.numeroDocumento}" 
+                           title="NumeroDocumento" required="true" jsf:requiredMessage="The NumeroDocumento field is required."
+                           jsf:validatorMessage="Por favor ingrese un numero entre 1 y 9999" >
+                        <f:validateLongRange minimum="1" maximum="99999999999999"/>
+                        <f:ajax execute="@this" render="numeroDocumentoMessage"/>
+                    </input>
+                    <h:message id="numeroDocumentoMessage" for="numeroDocumento" styleClass="error"/>
+
+                    <label class="Label">Nombres *</label>
+                    <input class="Input" placeholder="Sin caracter especiales" type="text" jsf:id="nombresCliente" jsf:value="#{clienteController.clienteActual.nombresCliente}" 
+                           title="NombresCliente" required="true" jsf:requiredMessage="The NombresCliente field is required."
+                           pattern="[a-zA-Z Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš]*" >
+                        <f:ajax execute="@this" render="nombreClienteMessage"/>
+                    </input>
+                    <h:message id="nombreClienteMessage" for="nombresCliente" styleClass="error"/>
+
+                    <label class="Label">Apellidos *</label>
+
+                    <input class="Input" placeholder="Sin caracter especiales" type="text" jsf:id="apellidosCliente" jsf:value="#{clienteController.clienteActual.apellidosCliente}" 
+                           title="ApellidosCliente" required="true" jsf:requiredMessage="The ApellidosCliente field is required."
+                           pattern="[a-zA-Z Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš]*" >
+                        <f:ajax execute="@this" render="apellidosClienteMessage"/>
+                    </input>
+                    <h:message id="apellidosClienteMessage" for="apellidosCliente" styleClass="error"/>
+
+                    <label>Genero *</label>
+                    <h:selectOneMenu p:class="Select-menu" id="idGenero" value="#{clienteController.clienteActual.idGenero}" title="IdGenero" required="true" requiredMessage="The IdGenero field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{clienteController.listGeneroSelectOne}"/>
+                    </h:selectOneMenu>
+
+                    <label class="Label">Teléfono *</label>
+                    <input class="Input" placeholder="Solo números" type="number" jsf:id="telefono" 
+                           jsf:value="#{clienteController.clienteActual.telefono}" title="Telefono" 
+                           required="true" jsf:requiredMessage="The Telefono field is required."
+                           jsf:validatorMessage="Por favor ingrese un numero entre 1 y 9999" >
+                        <f:validateLongRange minimum="1" maximum="99999999999999"/>
+                        <f:ajax execute="@this" render="telefonoMessage"/>
+                    </input>
+                    <h:message id="telefonoMessage" for="telefono" styleClass="error"/>
+
+                    <label>Fecha de nacimiento *</label>
+                    <input class="Input" type="date" jsf:id="fechaDeNacimiento" required="true"
+                           jsf:requiredMessage="Por favor ingrese la fecha de nacimiento"
+                           jsf:value="#{clienteController.clienteActual.fechaNacimiento}">
+                        <f:convertDateTime pattern="yyyy-MM-dd"/>
+                        <f:ajax execute="@this" render="fechaMessage"/>
+                    </input>
+                    <h:message id="fechaMessage" for="fechaDeNacimiento" styleClass="error"/>
+
+                    <label class="Label">Dirección *</label>
+                    <input class="Input" placeholder="Solo texto" type="text" jsf:id="direccion" jsf:value="#{clienteController.clienteActual.direccion}" title="Direccion" 
+                           required="true" >
+                    </input>
+                    
+                    <label class="Label">Ciudad *</label>
+                    <h:selectOneMenu  p:class="Select-menu" id="ciudad" value="#{clienteController.clienteActual.ciudad}" title="Ciudad" required="true" requiredMessage="The Ciudad field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{clienteController.listCiudadSelectOne}"/>
+                    </h:selectOneMenu>
+
+
+                    <label class="Label">Contraseña *</label>
+                    <p:password id="pwd1" value="#{clienteController.clienteActual.password}" match="pwd2" label="Password 1" required="true" />
+
+                    <label class="Label">Escriba de nuevo la contraseña *</label>
+                    <p:password id="pwd2" value="#{clienteController.clienteActual.password}" label="Password 2" required="true" />
+
+                    <label class="Label">Email *</label>
+                    <input class="Input" placeholder="example@mail" type="email" jsf:id="email" 
+                               jsf:value="#{clienteController.clienteActual.email}" title="Email" >
+                    </input>
+
+
+
+                </h:panelGrid>
+                <h:commandButton p:class="Button-guardar" value ="Guardar"
+                                 action="#{clienteController.addCliente}"/>
+                <h:button p:class="Button-cancelar" value="Cancelar" outcome="/index"/>
+                <br/>
+
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+
+</html>
+

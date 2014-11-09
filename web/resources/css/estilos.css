@@ -1,0 +1,210 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 6/11/2014, 10:59:38 PM
+    Author     : Andres
+*/
+
+.h1{
+    margin: 0;
+
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.3em;
+}
+.Body{
+    background: black;
+    margin: 1em;
+}
+
+Container-image{
+    size: cover;
+}
+
+.Profile {
+
+}
+
+.Header {
+    background:  #e1dddf;
+}
+.Header-image{
+    margin-right: 0.5em;
+}
+
+.Header-figure-template{
+    margin: 0;
+    padding-top: 3.6em;
+}
+
+p{
+    color: white;
+}
+
+.ui-fieldset-content { /* color del la letra del cuadro*/
+    color: white;
+}
+
+.ui-fieldset-legend { /* color del encabezado del cuadro */
+    color:#084B8A;
+    font-size: 24px;
+}
+.ui-button{
+    display: inline-block;
+    margin: 10px;
+}
+/*este este parte es para los formularios*/
+.Button-cancelar{
+    margin-left: 1em;
+}
+
+.ui-password{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em; 
+}
+
+.Label{
+
+}
+.Input{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.Select-menu{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+
+/*este este parte es para los formularios*/
+
+.MainMenu{
+    background: #084B8A;
+    height: 3.75em;
+    left: 0;
+    line-height: 3.75em;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+
+
+}
+
+
+
+
+.MainMenu-hover{
+    -webkit-appearance: button;
+
+    line-height: normal;
+    color: black;
+    margin: 0;
+    padding: 3px 1px 3px 1px;
+    -webkit-rtl-ordering: logical;
+    -webkit-writing-mode: horizontal-tb;
+}
+
+.MainMenu-item{
+    display: inline-block;
+
+}
+.MainMenu-link{
+    color: black;
+    margin-right: .4em;
+    text-decoration: none;
+    padding-left: 4px;
+}
+
+.MainMenu-list{
+    margin: 0;
+    padding: 0;
+
+}
+figure{
+    padding-top: 2.6em;
+}
+.Footer-link-facebook{
+    border-radius: 2em;
+    color: white;
+    text-decoration: none;
+    background: #3B5998;
+    padding: 0.2em;
+    margin-left: 1em;
+}
+.Footer-link-twitter{
+    border-radius: 2em;
+    color: white;
+    text-decoration: none;
+    background: #55ACEE;
+    padding: 0.2em;
+    margin-left: 1em;
+}
+.Footer-link-instagram{
+    border-radius: 2em;
+    color: white;
+    text-decoration: none;
+    background: #D73D32;
+    padding: 0.2em;
+    margin-left: 1em;
+}
+.Footer{
+    background-image: url("../images/footer1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 5em;
+
+
+
+}
+.Footer-template{
+    background: black;
+    /*  background-image: url("../images/Fashion-footer.jpg");*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 5em;
+    padding-bottom: 5em;
+
+
+}
+.Footer-description{
+    /* color: #58ACFA;*/
+    border-radius: 2em;
+    color: white;
+    text-decoration: none;
+    background: #585858;
+    padding: 0.2em;
+    margin-left: 1em;
+}
+.Section-template{
+
+    background: #F0ECDA;
+
+
+}
+.form-reg{
+    padding-left: 1em;
+    padding-bottom: 2em;
+}
+.Form-view{
+    padding-left: 1em;
+    padding-bottom: 2em;
+}
+
+/*para modificar la tabla de usuario*/
+.ui-widget-content, td{
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+
+}
+.Li-button{
+    display: inline-block;
+}
