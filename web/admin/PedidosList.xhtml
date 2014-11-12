@@ -60,12 +60,7 @@
                             </f:facet>
                             <h:outputText value="#{item.clienteIdCliente}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="Productos"/>
-                            </f:facet>
-                            <h:outputText value="#{item.productos}"/>
-                        </p:column>
+                       
                          <p:column>
                         <p:commandButton icon="ui-icon-search" action="#{pedidosController.prepareView()}">
                             <f:setPropertyActionListener value="#{item}" target="#{pedidosController.pedidoActual}"/>

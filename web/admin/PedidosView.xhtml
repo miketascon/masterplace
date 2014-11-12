@@ -2,12 +2,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">ver pedido</ui:define>
-        <ui:define name="body"> 
-            <header id="inicio" class="Header">
+     <head>
+        <title>Productos</title>
+        <link rel="stylesheet" href="../resources/css/estilos.css"/>
+        <link rel="stylesheet" href="../resources/css/normalize.css"/>
+    </head>
+   
+    <body >
+        <header id="inicio" class="Header">
 
 
 
@@ -22,38 +25,39 @@
                     <li class="MainMenu-item MainMenu-hover">
                         <a href="paginas/ofertas.xhtml" class="MainMenu-link">Ofertas</a></li>
 
-         
+
 
                 </ul>
             </nav>
             <figure class="Header-figure-template">
-                <img src="resources/images/fashion-banner.jpg" class="Header-image"  aling="center"/>
+                <img src="../resources/images/fashion-banner.jpg" class="Header-image"  aling="center"/>
             </figure>
         </header>
-           
-
-            <h1 class="h1">Pedido</h1>
-            
 
 
-                <h:form>
-                    <h1><h:outputText value="View"/></h1>
-                    <p:panelGrid columns="2">
-                        <h:outputText value="Pedido:"/>
-                        <h:outputText value="#{pedidosController.pedidoActual.idPedido}" title="IdPedido"/>
-                        <h:outputText value="ClienteIdCliente:"/>
-                        <h:outputText value="#{pedidosController.pedidoActual.clienteIdCliente}" title="ClienteIdCliente"/>
-                        <h:outputText value="Productos:"/>
-                        <h:outputText value="#{pedidosController.pedidoActual.productos}" title="Productos"/>
-                        
-                    </p:panelGrid>
-                </h:form>
-            
+        <h1 class="h1">Pedido</h1>
 
-           
-            
-        </ui:define>
-    </ui:composition>
 
+
+        <h:form>
+            <h1><h:outputText value="View"/></h1>
+            <p:panelGrid columns="2">
+                <h:outputText value="Pedido:"/>
+                <h:outputText value="#{pedidosController.pedidoActual.idPedido}" title="IdPedido"/>
+                <h:outputText value="ClienteIdCliente:"/>
+                <h:outputText value="#{pedidosController.pedidoActual.clienteIdCliente}" title="ClienteIdCliente"/>
+                <h:outputText value="Productos:"/>
+                <h:outputText value="#{pedidosController.pedidoActual.productos}" title="Productos"/>
+
+            </p:panelGrid>
+        </h:form>
+
+
+
+        <footer id="Contacto" class="Footer-template">
+
+        </footer>
+
+    </body>
 </html>
 
