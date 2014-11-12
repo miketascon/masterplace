@@ -2,12 +2,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <ui:composition template="/template.xhtml">
         <ui:define name="title">ver pedido</ui:define>
         <ui:define name="body"> 
+            <header id="inicio" class="Header">
+
+
+
+            <nav class="MainMenu">
+                <ul class="MainMenu-list"><!--  -->
+                    <li class="MainMenu-item MainMenu-hover">
+                        <a href="index.xhtml"  class="MainMenu-link">Inicio</a></li>
+
+                    <li class="MainMenu-item MainMenu-hover">
+                        <a href="paginas/productos.xhtml" class="MainMenu-link">Productos</a></li>
+
+                    <li class="MainMenu-item MainMenu-hover">
+                        <a href="paginas/ofertas.xhtml" class="MainMenu-link">Ofertas</a></li>
+
+         
+
+                </ul>
+            </nav>
+            <figure class="Header-figure-template">
+                <img src="resources/images/fashion-banner.jpg" class="Header-image"  aling="center"/>
+            </figure>
+        </header>
            
 
             <h1 class="h1">Pedido</h1>

@@ -12,8 +12,8 @@ and open the template in the editor.
     margin: 0;
 
     text-align: center;
-    padding-top: 0.5em;
-    padding-bottom: 0.3em;
+    padding-top: 1.5 em;
+    padding-bottom: 1.5em;
 }
 .Body{
     background: black;
@@ -159,48 +159,55 @@ figure{
     background-size: cover;
     text-align: center;
     padding-top: 5em;
-
+    height: 200px;
 
 
 }
 .Footer-template{
-    background: black;
-    /*  background-image: url("../images/Fashion-footer.jpg");*/
+
+    background-image: url("../images/Fashion-footer.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    text-align: center;
-    padding-top: 5em;
-    padding-bottom: 5em;
-
+    text-align: left;
+    padding-top: 3em;
+    padding-bottom: 5.5em;
+    height: 150px;
 
 }
-.Footer-description{
-    /* color: #58ACFA;*/
+/*.Footer-description{
+    color: #58ACFA;
     border-radius: 2em;
     color: white;
     text-decoration: none;
     background: #585858;
     padding: 0.2em;
     margin-left: 1em;
-}
+}*/
+
 .Section-template{
 
-    background: #F0ECDA;
+    background: #D9D9D9;
 
 
+}
+.Section-productos{
+    background: black;
+    padding-left: 4.5em;
+    padding-bottom: 3em;
+    padding-top: 3em;
 }
 .form-reg{
-    padding-left: 1em;
-    padding-bottom: 2em;
+    padding-left: 4em;
+    padding-bottom: 3em;
 }
 .Form-view{
-    padding-left: 1em;
-    padding-bottom: 2em;
+    padding-left: 25em;
+    padding-bottom: 3em;
 }
 
 /*para modificar la tabla de usuario*/
-.ui-widget-content, td{
+.ui-widget-content td{
     padding-bottom: 0.5em;
     padding-top: 0.5em;
 
@@ -208,3 +215,41 @@ figure{
 .Li-button{
     display: inline-block;
 }
+.item {
+    background: white;
+    border-bottom: 3px #22BCE0 solid;
+    margin: 0.5em;
+    min-height: 120px;
+    width: 550px;
+
+    height: 280px;
+    display: inline-block;
+}
+.titulo-item{
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+
+}
+.autor_item {
+    border-top: 1px solid white;
+    margin-left: 1em;
+}
+
+.imagen_item img{
+
+    margin-right: 0.5em;
+    float: left;
+
+}
+.imagen_item{
+    margin: 0;
+    height: 80px;
+    width: 120px;
+
+}
+
