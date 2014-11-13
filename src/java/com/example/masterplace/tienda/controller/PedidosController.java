@@ -13,6 +13,8 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -89,6 +91,16 @@ public class PedidosController implements Serializable {
     
      public List<Cliente> getListClienteSelectOne() {
         return getClienteFacade().findAll();
+    }
+     
+        public List<Cliente> getListClienteAutoComplete(String query) {
+        try {
+            return getClienteFacade().findByNumeroDoc(query);
+        } catch (Exception ex) {
+            Logger.getLogger(PedidosController.class
+                    .getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
       
      public String addCliente() {

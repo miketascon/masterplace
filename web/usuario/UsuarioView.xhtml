@@ -4,66 +4,92 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:jsf="http://xmlns.jcp.org/jsf">
-   
-    
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <title>Vista de usuario</title>
+        <link rel="stylesheet" href="../resources/css/estilos.css"/>
+        <link rel="stylesheet" href="../resources/css/normalize.css"/>
+    </head>
+
+    <body>
         <header id="inicio" class="Header">
 
 
 
             <nav class="MainMenu">
                 <ul class="MainMenu-list"><!--  -->
-                    <li class="MainMenu-item">
+                    <li class="MainMenu-item MainMenu-hover">
                         <a href="index.xhtml"  class="MainMenu-link">Inicio</a></li>
 
-                    <li class="MainMenu-item">
+                    <li class="MainMenu-item MainMenu-hover">
                         <a href="paginas/productos.xhtml" class="MainMenu-link">Productos</a></li>
 
-                    <li class="MainMenu-item">
+                    <li class="MainMenu-item MainMenu-hover">
                         <a href="paginas/ofertas.xhtml" class="MainMenu-link">Ofertas</a></li>
+
+
 
                 </ul>
             </nav>
-            <figure>
-                <img src="resources/images/fashion-banner.jpg" jsf:alt="Screen" class="Header-image"  aling="center"/>
+            <figure class="Header-figure-template">
+                <img src="resources/images/fashion-banner.jpg" class="Header-image"  aling="center"/>
             </figure>
         </header>
-      
+        <section Class="Section-template">
+            <h1 class="h1" >Clientes registrados</h1>
 
 
-            <h:form>
-                <h1><h:outputText value="View"/></h1>
-                <h:panelGrid columns="2">
 
-                    <h:outputText value="Numero Documento:"/>
-                    <h:outputText value="#{clienteController.clienteActual.numeroDocumento}" title="NumeroDocumento"/>
-                    <h:outputText value="Nombres:"/>
-                    <h:outputText value="#{clienteController.clienteActual.nombresCliente}" title="NombresCliente"/>
-                    <h:outputText value="Apellidos:"/>
-                    <h:outputText value="#{clienteController.clienteActual.apellidosCliente}" title="ApellidosCliente"/>
-                    <h:outputText value="Telefono:"/>
-                    <h:outputText value="#{clienteController.clienteActual.telefono}" title="Telefono"/>
-                    <h:outputText value="Fecha Nacimiento:"/>
-                    <h:outputText value="#{clienteController.clienteActual.fechaNacimiento}" title="FechaNacimiento">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:outputText>
-                    <h:outputText value="Dirección:"/>
-                    <h:outputText value="#{clienteController.clienteActual.direccion}" title="Direccion"/>
 
-                    <h:outputText value="Fecha Creacion Cliente:"/>
-                    <h:outputText value="#{clienteController.clienteActual.fechaCreacionCliente}" title="FechaCreacionCliente">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:outputText>
-                    <h:outputText value="Email:"/>
-                    <h:outputText value="#{clienteController.clienteActual.email}" title="Email"/>
-                    <h:outputText value="Tipo Documento:"/>
-                    <h:outputText value="#{clienteController.clienteActual.idTipoDocumento}" title="IdTipoDocumento"/>
-                    <h:outputText value="Ciudad:"/>
-                    <h:outputText value="#{clienteController.clienteActual.ciudad}" title="Ciudad"/>
-                    <h:outputText value="Genero:"/>
-                    <h:outputText value="#{clienteController.clienteActual.idGenero}" title="IdGenero"/>
-                </h:panelGrid>
-            </h:form>
-      
+
+            <f:view>
+
+                <h:form  p:class="Form-view">
+                    
+                    
+
+                    <p:panelGrid columns="2">
+                        <h:outputText value="Número de cliente:"/>
+                        <h:outputText value="#{clienteController.clienteActual.idCliente}" title="IdCliente"/>
+                        <h:outputText value="Tipo de documento:"/>
+                        <h:outputText value="#{clienteController.clienteActual.idTipoDocumento.toString()}" title="IdTipoDocumento"/>
+                         <h:outputText value="IdGenero:"/>
+                        <h:outputText value="#{clienteController.clienteActual.idGenero.toString()}" title="IdGenero"/>
+                        <h:outputText value="Número documento:"/>
+                        
+                        <h:outputText value="#{clienteController.clienteActual.numeroDocumento}" title="NumeroDocumento"/>
+                        <h:outputText value="Nombres:"/>
+                        <h:outputText value="#{clienteController.clienteActual.nombresCliente}" title="NombresCliente"/>
+                        <h:outputText value="Apellidos:"/>
+                        <h:outputText value="#{clienteController.clienteActual.apellidosCliente}" title="ApellidosCliente"/>
+                        <h:outputText value="Teléfono:"/>
+                        <h:outputText value="#{clienteController.clienteActual.telefono}" title="Telefono"/>
+                        <h:outputText value="Fecha de nacimiento:"/>
+                        <h:outputText value="#{clienteController.clienteActual.fechaNacimiento}" title="FechaNacimiento">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="Dirección:"/>
+                        <h:outputText value="#{clienteController.clienteActual.direccion}" title="Direccion"/>
+                     
+                        <h:outputText value="Fecha de registro:"/>
+                        <h:outputText value="#{clienteController.clienteActual.fechaCreacionCliente}" title="FechaCreacionCliente">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="E mail:"/>
+                        <h:outputText value="#{clienteController.clienteActual.email}" title="Email"/>
+                       
+                        <h:outputText value="Ciudad:"/>
+                        <h:outputText value="#{clienteController.clienteActual.ciudad.toString()}" title="Ciudad"/>
+                       
+                    </p:panelGrid>
+                </h:form>
+            </f:view>
+
+        </section>
+        
+        <footer id="Contacto" class="Footer-template"></footer>
+    </body>
+
+
 </html>
 

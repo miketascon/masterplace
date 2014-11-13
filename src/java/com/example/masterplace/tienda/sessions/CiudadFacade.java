@@ -6,9 +6,11 @@
 package com.example.masterplace.tienda.sessions;
 
 import com.example.masterplace.tienda.entities.Ciudad;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -26,6 +28,12 @@ public class CiudadFacade extends AbstractFacade<Ciudad> {
 
     public CiudadFacade() {
         super(Ciudad.class);
+    }
+  public List<Ciudad> findByNombre(String nombre) {
+        Query q = getEntityManager().createNamedQuery("Ciudad.findByNombreCiudad");
+        q.setParameter("nombreCiudad", nombre + "%");
+        q.setMaxResults(10);
+        return q.getResultList();
     }
     
 }
